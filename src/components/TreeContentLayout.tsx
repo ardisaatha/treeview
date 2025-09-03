@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { TreeNode, TreeContentLayoutProps } from "../types";
 import TreeView from "./Treeview";
+import "./global.css"
 
 export default function TreeContentLayout({
   fetchLeftData,

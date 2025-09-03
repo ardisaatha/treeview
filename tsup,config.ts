@@ -10,4 +10,5 @@ export default defineConfig({
   minify: true,
   target: "es2020",
   external: ["react", "react-dom"],
+  loader: { ".css": "css" },
 });
