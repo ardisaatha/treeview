@@ -127,6 +127,7 @@
 
 .list-none {
   list-style-type: none;
+  padding-left: 0.5rem;
 }
 
 .pl-2 {
