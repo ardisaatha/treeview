@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { TreeNode } from "../types";
+import "./global.css";
 
 export default function TreeView({
   data,
