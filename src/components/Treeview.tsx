@@ -5,14 +5,16 @@ import "./global.css";
 type TreeViewProps = {
   data: TreeNode[];
   onLeafClick: (node: TreeNode) => void;
-  icon?: React.ReactNode; // props icon optional
+  iconClose?: React.ReactNode; // props icon optional
+  iconOpen?: React.ReactNode; // props icon optional
   level?: number; // untuk menambahkan indentasi
 };
 
 export default function TreeView({
   data,
   onLeafClick,
-  icon,
+  iconOpen,
+  iconClose,
   level = 0,
 }: TreeViewProps) {
   const [expanded, setExpanded] = useState<string[]>([]);
@@ -42,7 +44,13 @@ export default function TreeView({
               <span className="w-4" /> // placeholder biar text tetap align
             )}
             <span>{node.name}</span>
-            {icon && <span className="ml-1">{icon}</span>} {/* ikon opsional */}
+            {iconClose && (
+              <span className="ml-1">
+                {" "}
+                {expanded.includes(node.id) ? iconOpen : iconClose}
+              </span>
+            )}{" "}
+            {/* ikon opsional */}
           </div>
 
           {node.children &&
@@ -51,7 +59,8 @@ export default function TreeView({
               <TreeView
                 data={node.children}
                 onLeafClick={onLeafClick}
-                icon={icon}
+                iconClose={iconClose}
+                iconOpen={iconOpen}
                 level={level + 1} // increment level untuk anak
               />
             )}

@@ -1,4 +1,5 @@
 import * as react_jsx_runtime from 'react/jsx-runtime';
+import React from 'react';
 
 type TreeNode = {
     id: string;
@@ -11,6 +12,11 @@ type TreeContentLayoutProps = {
     onRightLeafClick: (node: TreeNode) => void;
 };
 
-declare function TreeContentLayout({ fetchLeftData, fetchRightData, onRightLeafClick, }: TreeContentLayoutProps): react_jsx_runtime.JSX.Element;
+declare function TreeContentLayout({ fetchLeftData, fetchRightData, onRightLeafClick, iconLeftClose, iconLeftOpen, iconRightClose, iconRightOpen, }: TreeContentLayoutProps & {
+    iconLeftClose?: React.ReactNode;
+    iconLeftOpen?: React.ReactNode;
+    iconRightClose?: React.ReactNode;
+    iconRightOpen?: React.ReactNode;
+}): react_jsx_runtime.JSX.Element;
 
 export { TreeContentLayout, type TreeContentLayoutProps, type TreeNode, TreeContentLayout as default };
