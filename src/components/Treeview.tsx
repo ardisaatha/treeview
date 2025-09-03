@@ -1,29 +1,6 @@
-import React, { useState, CSSProperties } from "react";
+import React, { useState } from "react";
 import { TreeNode } from "../types";
-
-// Styles for TreeView
-const treeViewStyles: { [key: string]: CSSProperties } = {
-  ul: {
-    listStyleType: "none",
-    paddingLeft: "0.5rem",
-    margin: 0,
-  },
-  li: {
-    marginTop: "0.25rem",
-    marginBottom: "0.25rem",
-  },
-  node: {
-    display: "flex",
-    alignItems: "center",
-    gap: "0.5rem",
-    cursor: "pointer",
-    borderRadius: "0.25rem",
-    padding: "0.25rem",
-  },
-  nodeHover: {
-    backgroundColor: "#f3f4f6", // hover color
-  },
-};
+import "./global.css";
 
 export default function TreeView({
   data,
@@ -41,22 +18,15 @@ export default function TreeView({
   };
 
   return (
-    <ul style={treeViewStyles.ul}>
+    <ul className="list-none pl-2 space-y-1">
       {data.map((node) => (
-        <li key={node.id} style={treeViewStyles.li}>
+        <li key={node.id}>
           <div
-            style={treeViewStyles.node}
+            className="flex items-center gap-2 cursor-pointer hover:bg-gray-100 rounded p-1"
             onClick={() =>
               node.children && node.children.length > 0
                 ? toggleExpand(node.id)
                 : onLeafClick(node)
-            }
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.backgroundColor =
-                treeViewStyles.nodeHover.backgroundColor!)
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.backgroundColor = "transparent")
             }
           >
             {node.children && node.children.length > 0 && (
