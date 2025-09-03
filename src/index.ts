@@ -1,4 +1,5 @@
 import TreeContentLayout from "./components/TreeContentLayout";
+import './global.css';
 
 // Default export (biar bisa `import TreeContentLayout from ...`)
 export default TreeContentLayout;
