@@ -20,7 +20,7 @@ export default function TreeView({
   return (
     <ul className="list-none pl-2 space-y-1">
       {data.map((node) => (
-        <li key={node.id}>
+        <li className="pl-2" key={node.id}>
           <div
             className="flex items-center gap-2 cursor-pointer hover:bg-gray-100 rounded p-1"
             onClick={() =>
