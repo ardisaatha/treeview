@@ -1,2 +1,2 @@
-export { default as TreeView } from "./Treeview";
-export type { TreeViewProps, TreeNode } from "./Treeview";
+export { TreeView } from "./tree/Treeview";
+export type { TreeNode, TreeViewProps } from "./tree/types";
