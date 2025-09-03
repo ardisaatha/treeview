@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { TreeNode, TreeContentLayoutProps } from "../types";
 import TreeView from "./Treeview";
-import Modal from "./Modal";
 
 export default function TreeContentLayout({
   fetchLeftData,
   fetchRightData,
-  onModalConfirm,
-  onModalCancel,
+  onRightLeafClick,
 }: TreeContentLayoutProps) {
   const [leftData, setLeftData] = useState<TreeNode[]>([]);
   const [rightData, setRightData] = useState<TreeNode[]>([]);
   const [selectedNode, setSelectedNode] = useState<TreeNode | null>(null);
-  const [modalNode, setModalNode] = useState<TreeNode | null>(null);
 
   useEffect(() => {
     fetchLeftData().then(setLeftData);
@@ -27,7 +24,7 @@ export default function TreeContentLayout({
 
   const handleRightClick = (node: TreeNode) => {
     if (node.children && node.children.length > 0) return;
-    setModalNode(node);
+    onRightLeafClick(node);
   };
 
   return (
@@ -46,21 +43,6 @@ export default function TreeContentLayout({
           </h2>
           <TreeView data={rightData} onLeafClick={handleRightClick} />
         </div>
-      )}
-
-      {/* Modal */}
-      {modalNode && (
-        <Modal
-          node={modalNode}
-          onConfirm={() => {
-            onModalConfirm(modalNode);
-            setModalNode(null);
-          }}
-          onCancel={() => {
-            onModalCancel();
-            setModalNode(null);
-          }}
-        />
       )}
     </div>
   );
