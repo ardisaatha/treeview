@@ -1,2 +1,10 @@
-export { default as TreeContentLayout } from "./components/TreeContentLayout";
+import TreeContentLayout from "./components/TreeContentLayout";
+
+// Default export (biar bisa `import TreeContentLayout from ...`)
+export default TreeContentLayout;
+
+// Named export (biar bisa `import { TreeContentLayout } from ...`)
+export { TreeContentLayout };
+
+// Kalau ada types juga di-export
 export * from "./types";
