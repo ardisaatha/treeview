@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { TreeNode, TreeContentLayoutProps } from "../types";
 import TreeView from "./Treeview";
-import "./global.css"
+import { styles } from "../style"; // import style CSS-in-JS
 
 export default function TreeContentLayout({
   fetchLeftData,
@@ -29,19 +29,17 @@ export default function TreeContentLayout({
   };
 
   return (
-    <div className="flex gap-4 p-4">
+    <div style={styles.container}>
       {/* Left Card */}
-      <div className="w-1/3 bg-white rounded-xl shadow p-4">
-        <h2 className="font-semibold text-lg mb-2">Left Tree</h2>
+      <div style={styles.card}>
+        <h2 style={styles.title}>Left Tree</h2>
         <TreeView data={leftData} onLeafClick={handleLeftClick} />
       </div>
 
       {/* Right Card */}
       {selectedNode && (
-        <div className="w-1/3 bg-white rounded-xl shadow p-4">
-          <h2 className="font-semibold text-lg mb-2">
-            Right Tree: {selectedNode.name}
-          </h2>
+        <div style={styles.card}>
+          <h2 style={styles.title}>Right Tree: {selectedNode.name}</h2>
           <TreeView data={rightData} onLeafClick={handleRightClick} />
         </div>
       )}
