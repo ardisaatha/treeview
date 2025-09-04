@@ -58,6 +58,12 @@ export default function TreeView({
     width: "1rem", // w-4
   };
 
+  const iconColor: React.CSSProperties = {
+    color: "rgb(59 130 246 / var(--tw-text-opacity, 1))",
+  };
+
+  console.log(iconClose);
+
   return (
     <ul style={ulStyle}>
       {data.map((node, i) => (
@@ -81,9 +87,17 @@ export default function TreeView({
                 {!iconClose && !iconOpen ? (
                   <span>
                     {expanded.includes(node.id) ? (
-                      <FolderOpenIcon />
+                      <FolderOpenIcon
+                        width={24}
+                        height={24}
+                        color={"rgb(59 130 246 / var(--tw-text-opacity, 1))"}
+                      />
                     ) : (
-                      <FolderIcon />
+                      <FolderIcon
+                        width={24}
+                        height={24}
+                        color={"rgb(59 130 246 / var(--tw-text-opacity, 1))"}
+                      />
                     )}
                   </span>
                 ) : (

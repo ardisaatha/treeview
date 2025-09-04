@@ -84,7 +84,7 @@ export default function TreeContentLayout({
       <div style={cardStyle}>
         <div style={titleStyle}>
           <div style={colorTitleLeft}></div>
-          <h2 style={headingStyle}>Left Tree</h2>
+          <div style={headingStyle}>Left Tree</div>
         </div>
         <TreeView
           iconClose={iconLeftClose}
@@ -99,7 +99,7 @@ export default function TreeContentLayout({
         <div style={cardStyle}>
           <div style={titleStyle}>
             <div style={colorTitleRight}></div>
-            <h2 style={headingStyle}>Right Tree: {selectedNode.name}</h2>
+            <div style={headingStyle}>Right Tree: {selectedNode.name}</div>
           </div>
           <TreeView
             iconClose={iconRightClose}
