@@ -40,7 +40,7 @@ export default function TreeContentLayout({
   const containerStyle: React.CSSProperties = {
     display: "flex",
     gap: "1rem", // gap-4
-    padding: "1rem", // p-4
+    // padding: "1rem", // p-4
   };
 
   const cardStyle: React.CSSProperties = {
@@ -55,14 +55,37 @@ export default function TreeContentLayout({
     fontWeight: 600, // font-semibold
     fontSize: "1.125rem", // text-lg
     lineHeight: "1.75rem",
+  };
+
+  const colorTitleRight: React.CSSProperties = {
+    width: "4px",
+    height: "16px",
+    borderRadius: 9999,
+    backgroundColor: "oklch(62.3% .214 259.815)",
+  };
+  const colorTitleLeft: React.CSSProperties = {
+    width: "4px",
+    height: "16px",
+    borderRadius: 9999,
+    backgroundColor: "gray",
+  };
+
+  const titleStyle: React.CSSProperties = {
     marginBottom: "0.5rem", // mb-2
+    display: "flex",
+    alignItems: "center",
+    gap: "0.3rem", // gap-4
+    // padding: "1rem", // p-4
   };
 
   return (
     <div style={containerStyle}>
       {/* Left Card */}
       <div style={cardStyle}>
-        <h2 style={headingStyle}>Left Tree</h2>
+        <div style={titleStyle}>
+          <div style={colorTitleLeft}></div>
+          <h2 style={headingStyle}>Left Tree</h2>
+        </div>
         <TreeView
           iconClose={iconLeftClose}
           iconOpen={iconLeftOpen}
@@ -74,9 +97,10 @@ export default function TreeContentLayout({
       {/* Right Card */}
       {selectedNode && (
         <div style={cardStyle}>
-          <h2 style={headingStyle}>
-            Right Tree: {selectedNode.name}
-          </h2>
+          <div style={titleStyle}>
+            <div style={colorTitleRight}></div>
+            <h2 style={headingStyle}>Right Tree: {selectedNode.name}</h2>
+          </div>
           <TreeView
             iconClose={iconRightClose}
             iconOpen={iconRightOpen}
