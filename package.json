@@ -24,7 +24,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --minify --clean",
+    "build": "tsup src/index.ts --format esm,cjs --dts --minify --clean --watch",
     "dev": "tsup src/index.ts --watch",
     "prepare": "npm run build",
     "prepublishOnly": "npm run build"

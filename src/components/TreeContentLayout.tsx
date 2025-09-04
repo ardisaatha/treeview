@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { TreeNode, TreeContentLayoutProps } from "../types";
 import TreeView from "./Treeview";
-import "./global.css";
 
 export default function TreeContentLayout({
   fetchLeftData,
@@ -37,11 +36,33 @@ export default function TreeContentLayout({
     onRightLeafClick(node);
   };
 
+  // ---- Styles ----
+  const containerStyle: React.CSSProperties = {
+    display: "flex",
+    gap: "1rem", // gap-4
+    padding: "1rem", // p-4
+  };
+
+  const cardStyle: React.CSSProperties = {
+    width: "50%", // w-1/2
+    backgroundColor: "#fff", // bg-white
+    borderRadius: "0.75rem", // rounded-xl
+    boxShadow: "0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)", // shadow
+    padding: "1rem", // p-4
+  };
+
+  const headingStyle: React.CSSProperties = {
+    fontWeight: 600, // font-semibold
+    fontSize: "1.125rem", // text-lg
+    lineHeight: "1.75rem",
+    marginBottom: "0.5rem", // mb-2
+  };
+
   return (
-    <div className="flex gap-4 p-4">
+    <div style={containerStyle}>
       {/* Left Card */}
-      <div className="w-1/3 bg-white rounded-xl shadow p-4">
-        <h2 className="font-semibold text-lg mb-2">Left Tree</h2>
+      <div style={cardStyle}>
+        <h2 style={headingStyle}>Left Tree</h2>
         <TreeView
           iconClose={iconLeftClose}
           iconOpen={iconLeftOpen}
@@ -52,8 +73,8 @@ export default function TreeContentLayout({
 
       {/* Right Card */}
       {selectedNode && (
-        <div className="w-1/3 bg-white rounded-xl shadow p-4">
-          <h2 className="font-semibold text-lg mb-2">
+        <div style={cardStyle}>
+          <h2 style={headingStyle}>
             Right Tree: {selectedNode.name}
           </h2>
           <TreeView

@@ -1,3 +1,24 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+flex items-center gap-2 cursor-pointer hover:bg-gray-100 rounded p-1 */
+
+.treeks {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+
+  .treeks:hover {
+    background-color: #f5f5f5;
+  }
+
+  .layout {
+    display: flex;
+    gap: 1rem;
+    padding:1rem
+  }

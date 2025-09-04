@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { TreeNode } from "../types";
-import "./global.css";
 
 type TreeViewProps = {
   data: TreeNode[];
   onLeafClick: (node: TreeNode) => void;
-  iconClose?: React.ReactNode; // props icon optional
-  iconOpen?: React.ReactNode; // props icon optional
-  level?: number; // untuk menambahkan indentasi
+  iconClose?: React.ReactNode;
+  iconOpen?: React.ReactNode;
+  level?: number;
 };
 
 export default function TreeView({
@@ -25,13 +24,51 @@ export default function TreeView({
     );
   };
 
+  const ulStyle: React.CSSProperties = {
+    listStyle: "none", // list-none
+    paddingLeft: 0, // pl-0
+    margin: 0,
+  };
+
+  const liStyle: React.CSSProperties = {
+    marginTop: "0.25rem", // space-y-1 (≈4px)
+  };
+
+  const rowStyle: React.CSSProperties = {
+    display: "flex", // flex
+    alignItems: "center", // items-center
+    gap: "0.5rem", // gap-2
+    cursor: "pointer", // cursor-pointer
+    borderRadius: "0.25rem", // rounded
+    padding: "0.25rem", // p-1
+    transition: "background-color 0.2s ease",
+  };
+
+  const textIndent = (lvl: number): React.CSSProperties => ({
+    paddingLeft: `${lvl * 16}px`, // indentasi level
+  });
+
+  const ml1: React.CSSProperties = {
+    marginLeft: "0.25rem", // ml-1
+  };
+
+  const w4: React.CSSProperties = {
+    display: "inline-block",
+    width: "1rem", // w-4
+  };
+
   return (
-    <ul className="list-none pl-0 space-y-1">
-      {data.map((node) => (
-        <li key={node.id}>
+    <ul style={ulStyle}>
+      {data.map((node, i) => (
+        <li key={node.id} style={i > 0 ? liStyle : undefined}>
           <div
-            className="flex items-center gap-2 cursor-pointer hover:bg-gray-100 rounded p-1"
-            style={{ paddingLeft: `${level * 16}px` }} // indentasi sesuai level
+            style={{ ...rowStyle, ...textIndent(level) }}
+            onMouseEnter={(e) =>
+              ((e.currentTarget.style.backgroundColor = "#f3f4f6")) // hover:bg-gray-100
+            }
+            onMouseLeave={(e) =>
+              ((e.currentTarget.style.backgroundColor = "transparent"))
+            }
             onClick={() =>
               node.children && node.children.length > 0
                 ? toggleExpand(node.id)
@@ -39,18 +76,16 @@ export default function TreeView({
             }
           >
             {node.children && node.children.length > 0 ? (
-              <span>{expanded.includes(node.id) ? "▼" : "▶"}</span>
+              <>
+                <span>{expanded.includes(node.id) ? "▼" : "▶"}</span>
+                <span style={ml1}>
+                  {expanded.includes(node.id) ? iconOpen : iconClose}
+                </span>
+              </>
             ) : (
-              <span className="w-4" /> // placeholder biar text tetap align
+              <span style={w4} /> // placeholder biar text tetap align
             )}
             <span>{node.name}</span>
-            {iconClose && (
-              <span className="ml-1">
-                {" "}
-                {expanded.includes(node.id) ? iconOpen : iconClose}
-              </span>
-            )}{" "}
-            {/* ikon opsional */}
           </div>
 
           {node.children &&
@@ -61,7 +96,7 @@ export default function TreeView({
                 onLeafClick={onLeafClick}
                 iconClose={iconClose}
                 iconOpen={iconOpen}
-                level={level + 1} // increment level untuk anak
+                level={level + 1}
               />
             )}
         </li>
