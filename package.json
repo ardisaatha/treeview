@@ -8,12 +8,14 @@
   "main": "dist/index.cjs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "style": "dist/index.css",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
-    }
+    },
+    "./style.css": "./dist/index.css"
   },
   "sideEffects": false,
   "peerDependencies": {
@@ -24,7 +26,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --minify --clean --watch",
+    "build": "tsup src/index.ts --format esm,cjs --dts --minify --clean",
     "dev": "tsup src/index.ts --watch",
     "prepare": "npm run build",
     "prepublishOnly": "npm run build"
