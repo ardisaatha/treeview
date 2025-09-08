@@ -59,7 +59,6 @@ const Mgr = ({
 
   return (
     <div className="flex gap-4 w-full">
-        asu
       {/* Left Card */}
       <motion.div
         initial={{ width: "100%" }}
