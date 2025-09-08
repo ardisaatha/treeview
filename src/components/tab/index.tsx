@@ -31,16 +31,18 @@ const getLabelFromParam = (param: string, tabs: Tab[]) => {
 };
 
 const LocalProgressBar = ({ loading }: { loading: boolean }) => {
+  const barStyle: React.CSSProperties = {
+    height: "1px",
+    backgroundColor: "#cc141d",
+    transformOrigin: "left",
+  };
+
   return (
     <motion.div
-      className="tw-h-[1px] tw-bg-[#cc141d] tw-origin-left"
+      style={barStyle}
       initial={{ scaleX: 0 }}
       animate={{ scaleX: loading ? 1 : 0 }}
       transition={{ duration: 0.3 }}
-      style={{
-        transformOrigin: "left",
-        transform: loading ? "scaleX(1)" : "scaleX(0)",
-      }}
     />
   );
 };
@@ -59,7 +61,6 @@ const Tabs = ({ tabs, defaultKey, queryKey, sticky, className }: TabProps) => {
 
     setLoading(true);
 
-    // Simulate loading delay (or replace with real async logic)
     await new Promise((resolve) => setTimeout(resolve, 400));
 
     setTabKey(label);
@@ -91,26 +92,69 @@ const Tabs = ({ tabs, defaultKey, queryKey, sticky, className }: TabProps) => {
     }
   }, [defaultKey, tabs, queryKey]);
 
+  // Styles
+  const containerStyle: React.CSSProperties = {
+    paddingTop: "0.75rem",
+    borderBottom: "1px solid #e5e7eb", // gray-200
+    position: sticky ? "sticky" : "static",
+    top: sticky ? 0 : undefined,
+  };
+
+  const tabListStyle: React.CSSProperties = {
+    display: "flex",
+    flexWrap: "wrap",
+    marginBottom: "-1px",
+    fontSize: "0.75rem",
+    fontWeight: 400,
+    textAlign: "center",
+  };
+
+  const tabItemStyle: React.CSSProperties = {
+    marginRight: "1rem",
+    position: "relative",
+  };
+
+  const tabButtonBase: React.CSSProperties = {
+    display: "inline-block",
+    paddingBottom: "0.625rem",
+    borderBottom: "2px solid transparent",
+    borderTopLeftRadius: "0.5rem",
+    borderTopRightRadius: "0.5rem",
+    outline: "none",
+  };
+
+  const tabContentStyle: React.CSSProperties = {
+    paddingTop: "0.5rem",
+    paddingBottom: "0.5rem",
+    borderRadius: "0.5rem",
+    color: "#6b7280", // gray-500
+    width: "100%",
+  };
+
+  const activeTabTextColor = "#3b82f6"; // primary
+  const inactiveTabTextColor = "#6b7280"; // gray-500
+
+  const activeTabUnderlineStyle: React.CSSProperties = {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: "2px",
+    backgroundColor: activeTabTextColor,
+  };
+
   return (
     <>
-      <div
-        className={`tw-pt-3 tw-border-b tw-border-gray-200 ${
-          sticky ? "tw-sticky tw-top-0 " : ""
-        } ${className ?? ""}`}
-      >
-        <ul
-          className="tw-flex tw-flex-wrap tw--mb-px tw-text-xs tw-font-normal tw-text-center"
-          role="tablist"
-        >
+      <div style={containerStyle} className={className}>
+        <ul style={tabListStyle} role="tablist">
           {tabs.map((item) => (
-            <li key={item.label} className="tw-me-4 tw-relative" role="presentation">
+            <li key={item.label} style={tabItemStyle} role="presentation">
               <motion.button
                 onClick={() => handleSelect(item.label)}
-                className={`tw-inline-block tw-pb-2.5 tw-border-b-2 tw-rounded-t-lg focus:tw-outline-none ${
-                  tabKey === item.label
-                    ? "tw-border-transparent tw-text-primary"
-                    : "tw-border-transparent tw-text-gray-500"
-                }`}
+                style={{
+                  ...tabButtonBase,
+                  color: tabKey === item.label ? activeTabTextColor : inactiveTabTextColor,
+                }}
                 type="button"
                 role="tab"
                 aria-selected={tabKey === item.label}
@@ -120,12 +164,7 @@ const Tabs = ({ tabs, defaultKey, queryKey, sticky, className }: TabProps) => {
                 {item.label}
               </motion.button>
 
-              {tabKey === item.label && (
-                <motion.div
-                  layoutId="activeTabUnderline"
-                  className="tw-absolute tw-bottom-0 tw-left-0 tw-right-0 tw-h-0.5 tw-bg-primary"
-                />
-              )}
+              {tabKey === item.label && <motion.div layoutId="activeTabUnderline" style={activeTabUnderlineStyle} />}
             </li>
           ))}
         </ul>
@@ -136,9 +175,10 @@ const Tabs = ({ tabs, defaultKey, queryKey, sticky, className }: TabProps) => {
         {tabs.map((tab) => (
           <div
             key={tab.label}
-            className={`tw-py-2 tw-rounded-lg tw-text-gray-500 ${
-              tabKey === tab.label ? "tw-w-full" : "tw-hidden"
-            }`}
+            style={{
+              ...tabContentStyle,
+              display: tabKey === tab.label ? "block" : "none",
+            }}
             role="tabpanel"
           >
             {tab.content}

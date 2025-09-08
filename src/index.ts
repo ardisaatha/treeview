@@ -3,4 +3,4 @@ import Mgr from "./features/Mgr";
 
 export default Mgr;
 export { Mgr };
-export * from "./types";
+export * from "./components/types";
