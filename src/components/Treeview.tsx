@@ -30,11 +30,11 @@ export default function TreeView({
   });
 
   return (
-    <ul className="list-none p-0 m-0">
+    <ul className="tw-list-none tw-p-0 tw-m-0">
       {data.map((node, i) => (
-        <li key={node.id} className={i > 0 ? "mt-1" : ""}>
+        <li key={node.id} className={i > 0 ? "tw-mt-1" : ""}>
           <div
-            className="flex items-center gap-2 cursor-pointer rounded p-1 transition-colors duration-200 ease-in-out hover:bg-gray-100"
+            className="tw-flex tw-items-center tw-gap-2 tw-cursor-pointer tw-rounded tw-p-1 tw-transition-colors tw-duration-200 tw-ease-in-out hover:tw-bg-gray-100"
             style={textIndent(level)}
             onClick={() =>
               node.children && node.children.length > 0
@@ -50,24 +50,24 @@ export default function TreeView({
                       <FolderOpenIcon
                         width={24}
                         height={24}
-                        className="text-blue-500"
+                        className="tw-text-blue-500"
                       />
                     ) : (
                       <FolderIcon
                         width={24}
                         height={24}
-                        className="text-blue-500"
+                        className="tw-text-blue-500"
                       />
                     )}
                   </span>
                 ) : (
-                  <span className="ml-1">
+                  <span className="tw-ml-1">
                     {expanded.includes(node.id) ? iconOpen : iconClose}
                   </span>
                 )}
               </>
             ) : (
-              <span className="inline-block w-4">
+              <span className="tw-inline-block tw-w-4">
                 <DocumentIcon />
               </span> // placeholder biar text tetap align
             )}

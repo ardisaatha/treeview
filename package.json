@@ -18,7 +18,7 @@
     "./style.css": "./dist/index.css"
   },
   "sideEffects": [
-    "*.css"
+    "dist/index.css"
   ],
   "peerDependencies": {
     "react": ">=17.0.0",

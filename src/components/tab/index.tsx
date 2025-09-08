@@ -33,7 +33,7 @@ const getLabelFromParam = (param: string, tabs: Tab[]) => {
 const LocalProgressBar = ({ loading }: { loading: boolean }) => {
   return (
     <motion.div
-      className="h-[1px] bg-[#cc141d] origin-left"
+      className="tw-h-[1px] tw-bg-[#cc141d] tw-origin-left"
       initial={{ scaleX: 0 }}
       animate={{ scaleX: loading ? 1 : 0 }}
       transition={{ duration: 0.3 }}
@@ -94,22 +94,22 @@ const Tabs = ({ tabs, defaultKey, queryKey, sticky, className }: TabProps) => {
   return (
     <>
       <div
-        className={`pt-3 border-b border-gray-200 ${
-          sticky ? "sticky top-0 " : ""
+        className={`tw-pt-3 tw-border-b tw-border-gray-200 ${
+          sticky ? "tw-sticky tw-top-0 " : ""
         } ${className ?? ""}`}
       >
         <ul
-          className="flex flex-wrap -mb-px text-xs font-normal text-center"
+          className="tw-flex tw-flex-wrap tw--mb-px tw-text-xs tw-font-normal tw-text-center"
           role="tablist"
         >
           {tabs.map((item) => (
-            <li key={item.label} className="me-4 relative" role="presentation">
+            <li key={item.label} className="tw-me-4 tw-relative" role="presentation">
               <motion.button
                 onClick={() => handleSelect(item.label)}
-                className={`inline-block pb-2.5 border-b-2 rounded-t-lg focus:outline-none ${
+                className={`tw-inline-block tw-pb-2.5 tw-border-b-2 tw-rounded-t-lg focus:tw-outline-none ${
                   tabKey === item.label
-                    ? "border-transparent text-primary"
-                    : "border-transparent text-gray-500"
+                    ? "tw-border-transparent tw-text-primary"
+                    : "tw-border-transparent tw-text-gray-500"
                 }`}
                 type="button"
                 role="tab"
@@ -123,7 +123,7 @@ const Tabs = ({ tabs, defaultKey, queryKey, sticky, className }: TabProps) => {
               {tabKey === item.label && (
                 <motion.div
                   layoutId="activeTabUnderline"
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
+                  className="tw-absolute tw-bottom-0 tw-left-0 tw-right-0 tw-h-0.5 tw-bg-primary"
                 />
               )}
             </li>
@@ -136,8 +136,8 @@ const Tabs = ({ tabs, defaultKey, queryKey, sticky, className }: TabProps) => {
         {tabs.map((tab) => (
           <div
             key={tab.label}
-            className={`py-2 rounded-lg text-gray-500 ${
-              tabKey === tab.label ? "w-full" : "hidden"
+            className={`tw-py-2 tw-rounded-lg tw-text-gray-500 ${
+              tabKey === tab.label ? "tw-w-full" : "tw-hidden"
             }`}
             role="tabpanel"
           >

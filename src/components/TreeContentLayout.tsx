@@ -37,12 +37,12 @@ export default function TreeContentLayout({
   };
 
   return (
-    <div className="flex gap-4">
+    <div className="tw-flex tw-gap-4">
       {/* Left Card */}
-      <div className="w-1/4 bg-white rounded-xl shadow p-4">
-        <div className="mb-2 flex items-center gap-1">
-          <div className="w-1 h-4 rounded-full bg-gray-500"></div>
-          <div className="font-semibold text-lg">Left Tree</div>
+      <div className="tw-w-1/4 tw-bg-white tw-rounded-xl tw-shadow tw-p-4">
+        <div className="tw-mb-2 tw-flex tw-items-center tw-gap-1">
+          <div className="tw-w-1 tw-h-4 tw-rounded-full tw-bg-gray-500"></div>
+          <div className="tw-font-semibold tw-text-lg">Left Tree</div>
         </div>
         <TreeView
           iconClose={iconLeftClose}
@@ -54,10 +54,10 @@ export default function TreeContentLayout({
 
       {/* Right Card */}
       {/* {selectedNode && ( */}
-      <div className="w-3/4 bg-white rounded-xl shadow p-4">
-        <div className="mb-2 flex items-center gap-1">
-          <div className="w-1 h-4 rounded-full bg-[oklch(62.3%_.214_259.815)]"></div>
-          <div className="font-semibold text-lg">Right Tree:</div>
+      <div className="tw-w-3/4 tw-bg-white tw-rounded-xl tw-shadow tw-p-4">
+        <div className="tw-mb-2 tw-flex tw-items-center tw-gap-1">
+          <div className="tw-w-1 tw-h-4 tw-rounded-full tw-bg-[oklch(62.3%_.214_259.815)]"></div>
+          <div className="tw-font-semibold tw-text-lg">Right Tree:</div>
         </div>
         {/* <TreeView
             iconClose={iconRightClose}

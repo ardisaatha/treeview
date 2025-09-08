@@ -58,30 +58,30 @@ const Mgr = ({
   ];
 
   return (
-    <div className="flex gap-4 w-full">
+    <div className="tw-flex tw-gap-4 tw-w-full">
       {/* Left Card */}
       <motion.div
         initial={{ width: "100%" }}
         animate={{ width: selectedNode ? "20%" : "100%" }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
-        className="bg-white rounded-xl shadow p-4 overflow-hidden"
+        className="tw-bg-white tw-rounded-xl tw-shadow tw-p-4 tw-overflow-hidden"
       >
-        <div className="mb-2 flex items-center gap-1">
-          <div className="w-1 h-4 rounded-full bg-gray-500"></div>
-          <div className="font-semibold text-lg">Left Tree</div>
+        <div className="tw-mb-2 tw-flex tw-items-center tw-gap-1">
+          <div className="tw-w-1 tw-h-4 tw-rounded-full tw-bg-gray-500"></div>
+          <div className="tw-font-semibold tw-text-lg">Left Tree</div>
         </div>
 
-        <div className="space-y-4">
+        <div className="tw-space-y-4">
           <label
             htmlFor="search"
-            className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+            className="tw-mb-2 tw-text-sm tw-font-medium tw-text-gray-900 tw-sr-only dark:tw-text-white"
           >
             Search
           </label>
-          <div className="relative">
-            <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+          <div className="tw-relative">
+            <div className="tw-absolute tw-inset-y-0 tw-start-0 tw-flex tw-items-center tw-ps-3 tw-pointer-events-none">
               <svg
-                className="w-4 h-4 text-gray-500 dark:text-gray-400"
+                className="tw-w-4 tw-h-4 tw-text-gray-500 dark:tw-text-gray-400"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -99,13 +99,13 @@ const Mgr = ({
             <input
               type="search"
               id="search"
-              className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="tw-block tw-w-full tw-p-4 tw-ps-10 tw-text-sm tw-text-gray-900 tw-border tw-border-gray-300 tw-rounded-lg tw-bg-gray-50 focus:tw-ring-blue-500 focus:tw-border-blue-500 dark:tw-bg-gray-700 dark:tw-border-gray-600 dark:tw-placeholder-gray-400 dark:tw-text-white dark:focus:tw-ring-blue-500 dark:focus:tw-border-blue-500"
               placeholder="Search"
               required
             />
             <button
               type="button"
-              className="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="tw-text-white tw-absolute tw-end-2.5 tw-bottom-2.5 tw-bg-blue-700 hover:tw-bg-blue-800 focus:tw-ring-4 focus:tw-outline-none focus:tw-ring-blue-300 tw-font-medium tw-rounded-lg tw-text-sm tw-px-4 tw-py-2 dark:tw-bg-blue-600 dark:hover:tw-bg-blue-700 dark:focus:tw-ring-blue-800"
             >
               Search
             </button>
@@ -128,11 +128,11 @@ const Mgr = ({
             animate={{ opacity: 1, x: 0, width: "80%" }}
             exit={{ opacity: 0, x: 50 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="bg-white rounded-xl shadow p-4"
+            className="tw-bg-white tw-rounded-xl tw-shadow tw-p-4"
           >
-            <div className="mb-2 flex items-center gap-1">
-              <div className="w-1 h-4 rounded-full bg-indigo-500"></div>
-              <div className="font-semibold text-lg">
+            <div className="tw-mb-2 tw-flex tw-items-center tw-gap-1">
+              <div className="tw-w-1 tw-h-4 tw-rounded-full tw-bg-indigo-500"></div>
+              <div className="tw-font-semibold tw-text-lg">
                 Right Tree: {selectedNode.name}
               </div>
             </div>

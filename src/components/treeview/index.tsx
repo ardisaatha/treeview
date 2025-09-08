@@ -26,11 +26,11 @@ export default function TreeView({
   };
 
   return (
-    <ul className="list-none pl-0 m-0">
+    <ul className="tw-list-none tw-pl-0 tw-m-0">
       {data.map((node, i) => (
-        <li key={node.id} className={i > 0 ? "mt-1" : ""}>
+        <li key={node.id} className={i > 0 ? "tw-mt-1" : ""}>
           <div
-            className={`flex items-center gap-2 cursor-pointer rounded p-1 hover:bg-gray-100 transition-colors`}
+            className={`tw-flex tw-items-center tw-gap-2 tw-cursor-pointer tw-rounded tw-p-1 hover:tw-bg-gray-100 tw-transition-colors`}
             style={{ paddingLeft: `${level * 16}px` }}
             onClick={() =>
               node.children && node.children.length > 0
@@ -57,13 +57,13 @@ export default function TreeView({
                     )}
                   </span>
                 ) : (
-                  <span className="ml-1">
+                  <span className="tw-ml-1">
                     {expanded.includes(node.id) ? iconOpen : iconClose}
                   </span>
                 )}
               </>
             ) : (
-              <span className="inline-block w-4">
+              <span className="tw-inline-block tw-w-4">
                 <DocumentIcon />
               </span>
             )}
