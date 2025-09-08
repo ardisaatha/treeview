@@ -295,6 +295,9 @@
 .tw-bg-none {
     background-image: none !important
 }
+.tw-p-0 {
+    padding: 0px !important
+}
 .tw-p-1 {
     padding: 0.25rem !important
 }

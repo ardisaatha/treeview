@@ -99,7 +99,7 @@ const Tabs = ({ tabs, defaultKey, queryKey, sticky, className }: TabProps) => {
         } ${className ?? ""}`}
       >
         <ul
-          className="tw-flex tw-list-none tw-border-b tw-border-gray-200 tw-flex-wrap tw--mb-px tw-text-xs tw-font-normal tw-text-center"
+          className="tw-flex tw-list-none tw-p-0 tw-border-b tw-border-gray-200 tw-flex-wrap tw--mb-px tw-text-xs tw-font-normal tw-text-center"
           role="tablist"
         >
           {tabs.map((item) => (
