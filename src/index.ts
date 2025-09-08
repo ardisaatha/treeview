@@ -1,4 +1,4 @@
-// import "../dist/index.css"; // hasil build CSS, bukan global.css mentah
+// // import "../dist/index.css"; // hasil build CSS, bukan global.css mentah // hasil build CSS, bukan global.css mentah
 import Mgr from "./features/Mgr";
 
 export default Mgr;
