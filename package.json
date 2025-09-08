@@ -27,7 +27,7 @@
     "postcss.config.cjs"
   ],
   "scripts": {
-    "build": "tsup src/index.ts",
+    "build": "tsup src/index.ts --format esm,cjs --dts --minify --clean",
     "dev": "tsup src/index.ts --watch",
     "prepare": "npm run build",
     "prepublishOnly": "npm run build"
