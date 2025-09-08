@@ -1,7 +1,7 @@
 // tsup.config.ts
 import { defineConfig } from "tsup";
 import postcss from "postcss";
-import tailwindcss from "tailwindcss";
+// import tailwindcss from "tailwindcss";
 import autoprefixer from "autoprefixer";
 import fs from "fs/promises";
 
@@ -20,7 +20,7 @@ export default defineConfig({
     const css = await fs.readFile("src/components/global.css", "utf-8");
 
     // proses dengan tailwind + autoprefixer
-    const result = await postcss([tailwindcss, autoprefixer]).process(css, {
+    const result = await postcss([autoprefixer]).process(css, {
       from: "src/components/global.css",
       to: "dist/index.css",
     });
