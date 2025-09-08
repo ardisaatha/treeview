@@ -56,103 +56,32 @@ const Mgr = ({
       content: <p>This is a second tab with condition information.</p>,
     },
   ];
-
-  // Styles
-  const containerStyle: React.CSSProperties = {
-    display: "flex",
-    gap: "1rem",
-    width: "100%",
-  };
-
-  const cardBaseStyle: React.CSSProperties = {
-    backgroundColor: "#ffffff",
-    borderRadius: "1rem",
-    boxShadow: "0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)",
-    padding: "1rem",
-    overflow: "hidden",
-  };
-
-  const headerStyle: React.CSSProperties = {
-    marginBottom: "0.5rem",
-    display: "flex",
-    alignItems: "center",
-    gap: "0.25rem",
-  };
-
-  const headerBarStyle: React.CSSProperties = {
-    width: "0.25rem",
-    height: "1rem",
-    borderRadius: "9999px",
-    backgroundColor: "#6b7280", // gray-500
-  };
-
-  const headerTextStyle: React.CSSProperties = {
-    fontWeight: 600,
-    fontSize: "1.125rem", // lg
-  };
-
-  const searchContainerStyle: React.CSSProperties = {
-    position: "relative",
-    marginBottom: "1rem",
-  };
-
-  const searchInputStyle: React.CSSProperties = {
-    width: "100%",
-    padding: "0.5rem 1rem 0.5rem 2.5rem",
-    fontSize: "0.875rem",
-    color: "#111827", // gray-900
-    border: "1px solid #d1d5db", // gray-300
-    borderRadius: "0.5rem",
-    backgroundColor: "#f9fafb", // gray-50
-    outline: "none",
-  };
-
-  const searchIconWrapperStyle: React.CSSProperties = {
-    position: "absolute",
-    inset: 0,
-    left: 0,
-    display: "flex",
-    alignItems: "center",
-    paddingLeft: "0.75rem",
-    pointerEvents: "none",
-  };
-
-  const searchButtonStyle: React.CSSProperties = {
-    position: "absolute",
-    right: "0.625rem",
-    bottom: "0.625rem",
-    backgroundColor: "#1d4ed8", // blue-700
-    color: "#fff",
-    border: "none",
-    borderRadius: "0.5rem",
-    fontWeight: 500,
-    fontSize: "0.875rem",
-    padding: "0.5rem 1rem",
-    cursor: "pointer",
-  };
-
+  
   return (
-    <div style={containerStyle}>
+    <div className="tw-flex tw-gap-4 tw-w-full">
       {/* Left Card */}
       <motion.div
         initial={{ width: "100%" }}
         animate={{ width: selectedNode ? "20%" : "100%" }}
         transition={{ duration: 0.4, ease: "easeInOut" }}
-        style={cardBaseStyle}
+        className="tw-bg-white tw-rounded-xl tw-shadow tw-p-4 tw-overflow-hidden"
       >
-        <div style={headerStyle}>
-          <div style={headerBarStyle}></div>
-          <div style={headerTextStyle}>Left Tree</div>
+        <div className="tw-mb-2 tw-flex tw-items-center tw-gap-1">
+          <div className="tw-w-1 tw-h-4 tw-rounded-full tw-bg-gray-500"></div>
+          <div className="tw-font-semibold tw-text-lg">Left Tree</div>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-          <label htmlFor="search" style={{ display: "none" }}>
+        <div className="tw-space-y-4">
+          <label
+            htmlFor="search"
+            className="tw-mb-2 tw-text-sm tw-font-medium tw-text-gray-900 tw-sr-only dark:tw-text-white"
+          >
             Search
           </label>
-          <div style={searchContainerStyle}>
-            <div style={searchIconWrapperStyle}>
+          <div className="tw-relative">
+            <div className="tw-absolute tw-inset-y-0 tw-start-0 tw-flex tw-items-center tw-ps-3 tw-pointer-events-none">
               <svg
-                style={{ width: "1rem", height: "1rem", color: "#6b7280" }}
+                className="tw-w-4 tw-h-4 tw-text-gray-500 dark:tw-text-gray-400"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -170,11 +99,15 @@ const Mgr = ({
             <input
               type="search"
               id="search"
+              className="tw-block tw-w-full tw-p-4 tw-ps-10 tw-text-sm tw-text-gray-900 tw-border tw-border-gray-300 tw-rounded-lg tw-bg-gray-50 focus:tw-ring-blue-500 focus:tw-border-blue-500 dark:tw-bg-gray-700 dark:tw-border-gray-600 dark:tw-placeholder-gray-400 dark:tw-text-white dark:focus:tw-ring-blue-500 dark:focus:tw-border-blue-500"
               placeholder="Search"
               required
-              style={searchInputStyle}
+
             />
-            <button type="button" style={searchButtonStyle}>
+            <button
+              type="button"
+              className="tw-text-white tw-absolute tw-end-2.5 tw-bottom-2.5 tw-bg-blue-700 hover:tw-bg-blue-800 focus:tw-ring-4 focus:tw-outline-none focus:tw-ring-blue-300 tw-font-medium tw-rounded-lg tw-text-sm tw-px-4 tw-py-2 dark:tw-bg-blue-600 dark:hover:tw-bg-blue-700 dark:focus:tw-ring-blue-800"
+            >
               Search
             </button>
           </div>
@@ -197,13 +130,13 @@ const Mgr = ({
             animate={{ opacity: 1, x: 0, width: "80%" }}
             exit={{ opacity: 0, x: 50 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            style={cardBaseStyle}
+            className="tw-bg-white tw-rounded-xl tw-shadow tw-p-4"
           >
-            <div style={headerStyle}>
-              <div
-                style={{ ...headerBarStyle, backgroundColor: "#6366f1" }} // indigo-500
-              ></div>
-              <div style={headerTextStyle}>
+            <div className="tw-mb-2 tw-flex tw-items-center tw-gap-1">
+              <div className="tw-w-1 tw-h-4 tw-rounded-full tw-bg-indigo-500"></div>
+              <div className="tw-font-semibold tw-text-lg">
+
+
                 Right Tree: {selectedNode.name}
               </div>
             </div>
@@ -221,3 +154,4 @@ const Mgr = ({
 };
 
 export default Mgr;
+
