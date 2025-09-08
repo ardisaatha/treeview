@@ -12,11 +12,11 @@ type TreeContentLayoutProps = {
     onRightLeafClick: (node: TreeNode) => void;
 };
 
-declare function TreeContentLayout({ fetchLeftData, fetchRightData, onRightLeafClick, iconLeftClose, iconLeftOpen, iconRightClose, iconRightOpen, }: TreeContentLayoutProps & {
+declare const Mgr: ({ fetchLeftData, fetchRightData, onRightLeafClick, iconLeftClose, iconLeftOpen, iconRightClose, iconRightOpen, }: TreeContentLayoutProps & {
     iconLeftClose?: React.ReactNode;
     iconLeftOpen?: React.ReactNode;
     iconRightClose?: React.ReactNode;
     iconRightOpen?: React.ReactNode;
-}): react_jsx_runtime.JSX.Element;
+}) => react_jsx_runtime.JSX.Element;
 
-export { TreeContentLayout, type TreeContentLayoutProps, type TreeNode, TreeContentLayout as default };
+export { Mgr, type TreeContentLayoutProps, type TreeNode, Mgr as default };

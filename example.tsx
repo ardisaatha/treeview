@@ -1,6 +1,6 @@
-/*
 import React, { useState } from 'react';
 import TreeContentLayout, { TreeNode } from './src'; // Adjust the import path
+import './src/components/global.css';
 
 const App = () => {
   const [modalNode, setModalNode] = useState<TreeNode | null>(null);
@@ -79,4 +79,3 @@ const App = () => {
 };
 
 export default App;
-*/

@@ -36,55 +36,13 @@ export default function TreeContentLayout({
     onRightLeafClick(node);
   };
 
-  // ---- Styles ----
-  const containerStyle: React.CSSProperties = {
-    display: "flex",
-    gap: "1rem", // gap-4
-    // padding: "1rem", // p-4
-  };
-
-  const cardStyle: React.CSSProperties = {
-    width: "50%", // w-1/2
-    backgroundColor: "#fff", // bg-white
-    borderRadius: "0.75rem", // rounded-xl
-    boxShadow: "0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)", // shadow
-    padding: "1rem", // p-4
-  };
-
-  const headingStyle: React.CSSProperties = {
-    fontWeight: 600, // font-semibold
-    fontSize: "1.125rem", // text-lg
-    lineHeight: "1.75rem",
-  };
-
-  const colorTitleRight: React.CSSProperties = {
-    width: "4px",
-    height: "16px",
-    borderRadius: 9999,
-    backgroundColor: "oklch(62.3% .214 259.815)",
-  };
-  const colorTitleLeft: React.CSSProperties = {
-    width: "4px",
-    height: "16px",
-    borderRadius: 9999,
-    backgroundColor: "gray",
-  };
-
-  const titleStyle: React.CSSProperties = {
-    marginBottom: "0.5rem", // mb-2
-    display: "flex",
-    alignItems: "center",
-    gap: "0.3rem", // gap-4
-    // padding: "1rem", // p-4
-  };
-
   return (
-    <div style={containerStyle}>
+    <div className="flex gap-4">
       {/* Left Card */}
-      <div style={cardStyle}>
-        <div style={titleStyle}>
-          <div style={colorTitleLeft}></div>
-          <div style={headingStyle}>Left Tree</div>
+      <div className="w-1/4 bg-white rounded-xl shadow p-4">
+        <div className="mb-2 flex items-center gap-1">
+          <div className="w-1 h-4 rounded-full bg-gray-500"></div>
+          <div className="font-semibold text-lg">Left Tree</div>
         </div>
         <TreeView
           iconClose={iconLeftClose}
@@ -95,20 +53,20 @@ export default function TreeContentLayout({
       </div>
 
       {/* Right Card */}
-      {selectedNode && (
-        <div style={cardStyle}>
-          <div style={titleStyle}>
-            <div style={colorTitleRight}></div>
-            <div style={headingStyle}>Right Tree: {selectedNode.name}</div>
-          </div>
-          <TreeView
+      {/* {selectedNode && ( */}
+      <div className="w-3/4 bg-white rounded-xl shadow p-4">
+        <div className="mb-2 flex items-center gap-1">
+          <div className="w-1 h-4 rounded-full bg-[oklch(62.3%_.214_259.815)]"></div>
+          <div className="font-semibold text-lg">Right Tree:</div>
+        </div>
+        {/* <TreeView
             iconClose={iconRightClose}
             iconOpen={iconRightOpen}
             data={rightData}
             onLeafClick={handleRightClick}
-          />
-        </div>
-      )}
+          /> */}
+      </div>
+      {/* )} */}
     </div>
   );
 }

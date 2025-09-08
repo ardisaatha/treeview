@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { TreeNode } from "../types";
-import { DocumentIcon, FolderIcon, FolderOpenIcon } from "./icon";
+import { DocumentIcon, FolderIcon, FolderOpenIcon } from "../icon";
 
 type TreeViewProps = {
   data: TreeNode[];
@@ -25,17 +25,13 @@ export default function TreeView({
     );
   };
 
-  const textIndent = (lvl: number): React.CSSProperties => ({
-    paddingLeft: `${lvl * 16}px`, // indentasi level
-  });
-
   return (
-    <ul className="list-none p-0 m-0">
+    <ul className="list-none pl-0 m-0">
       {data.map((node, i) => (
         <li key={node.id} className={i > 0 ? "mt-1" : ""}>
           <div
-            className="flex items-center gap-2 cursor-pointer rounded p-1 transition-colors duration-200 ease-in-out hover:bg-gray-100"
-            style={textIndent(level)}
+            className={`flex items-center gap-2 cursor-pointer rounded p-1 hover:bg-gray-100 transition-colors`}
+            style={{ paddingLeft: `${level * 16}px` }}
             onClick={() =>
               node.children && node.children.length > 0
                 ? toggleExpand(node.id)
@@ -50,13 +46,13 @@ export default function TreeView({
                       <FolderOpenIcon
                         width={24}
                         height={24}
-                        className="text-blue-500"
+                        color="rgb(59 130 246)"
                       />
                     ) : (
                       <FolderIcon
                         width={24}
                         height={24}
-                        className="text-blue-500"
+                        color="rgb(59 130 246)"
                       />
                     )}
                   </span>
@@ -69,7 +65,7 @@ export default function TreeView({
             ) : (
               <span className="inline-block w-4">
                 <DocumentIcon />
-              </span> // placeholder biar text tetap align
+              </span>
             )}
             <span>{node.name}</span>
           </div>
