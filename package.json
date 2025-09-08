@@ -23,16 +23,18 @@
     "react-dom": ">=17.0.0"
   },
   "files": [
-    "dist"
+    "dist",
+    "postcss.config.cjs"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --minify --clean",
+    "build": "tsup src/index.ts",
     "dev": "tsup src/index.ts --watch",
     "prepare": "npm run build",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.13",
+    "@types/node": "^24.3.1",
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",
     "autoprefixer": "^10.4.21",
