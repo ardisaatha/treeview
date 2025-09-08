@@ -94,12 +94,12 @@ const Tabs = ({ tabs, defaultKey, queryKey, sticky, className }: TabProps) => {
   return (
     <>
       <div
-        className={`tw-pt-3 tw-border-b tw-border-gray-200 ${
+        className={`tw-pt-3  ${
           sticky ? "tw-sticky tw-top-0 " : ""
         } ${className ?? ""}`}
       >
         <ul
-          className="tw-flex tw-flex-wrap tw--mb-px tw-text-xs tw-font-normal tw-text-center"
+          className="tw-flex tw-list-none tw-border-b tw-border-gray-200 tw-flex-wrap tw--mb-px tw-text-xs tw-font-normal tw-text-center"
           role="tablist"
         >
           {tabs.map((item) => (
@@ -110,9 +110,9 @@ const Tabs = ({ tabs, defaultKey, queryKey, sticky, className }: TabProps) => {
             >
               <motion.button
                 onClick={() => handleSelect(item.label)}
-                className={`tw-inline-block tw-pb-2.5 tw-border-b-2 tw-rounded-t-lg focus:tw-outline-none ${
+                className={`tw-inline-block tw-pb-2.5 tw-border-b-2 tw-bg-none tw-rounded-t-lg focus:tw-outline-none ${
                   tabKey === item.label
-                    ? "tw-border-transparent tw-text-primary"
+                    ? "tw-border-transparent tw-text-[#cc141d]"
                     : "tw-border-transparent tw-text-gray-500"
                 }`}
                 type="button"
@@ -127,7 +127,7 @@ const Tabs = ({ tabs, defaultKey, queryKey, sticky, className }: TabProps) => {
               {tabKey === item.label && (
                 <motion.div
                   layoutId="activeTabUnderline"
-                  className="tw-absolute tw-bottom-0 tw-left-0 tw-right-0 tw-h-0.5 tw-bg-primary"
+                  className="tw-absolute tw-bottom-0 tw-left-0 tw-right-0 tw-h-0.5 tw-bg-[#cc141d]"
                 />
               )}
             </li>

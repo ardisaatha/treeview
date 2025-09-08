@@ -56,7 +56,7 @@ const Mgr = ({
       content: <p>This is a second tab with condition information.</p>,
     },
   ];
-  
+
   return (
     <div className="tw-flex tw-gap-4 tw-w-full">
       {/* Left Card */}
@@ -74,14 +74,14 @@ const Mgr = ({
         <div className="tw-space-y-4">
           <label
             htmlFor="search"
-            className="tw-mb-2 tw-text-sm tw-font-medium tw-text-gray-900 tw-sr-only dark:tw-text-white"
+            className="tw-mb-2 tw-text-sm tw-font-medium tw-text-gray-900 tw-sr-only"
           >
             Search
           </label>
           <div className="tw-relative">
             <div className="tw-absolute tw-inset-y-0 tw-start-0 tw-flex tw-items-center tw-ps-3 tw-pointer-events-none">
               <svg
-                className="tw-w-4 tw-h-4 tw-text-gray-500 dark:tw-text-gray-400"
+                className="tw-w-4 tw-h-4 tw-text-gray-500"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -99,14 +99,14 @@ const Mgr = ({
             <input
               type="search"
               id="search"
-              className="tw-block tw-w-full tw-p-4 tw-ps-10 tw-text-sm tw-text-gray-900 tw-border tw-border-gray-300 tw-rounded-lg tw-bg-gray-50 focus:tw-ring-blue-500 focus:tw-border-blue-500 dark:tw-bg-gray-700 dark:tw-border-gray-600 dark:tw-placeholder-gray-400 dark:tw-text-white dark:focus:tw-ring-blue-500 dark:focus:tw-border-blue-500"
+              className="tw-block tw-w-full tw-p-4 tw-ps-10 tw-text-sm tw-text-gray-900 tw-border tw-border-gray-300 tw-rounded-lg tw-bg-gray-50 focus:tw-ring-blue-500 focus:tw-border-blue-500"
               placeholder="Search"
               required
 
             />
             <button
               type="button"
-              className="tw-text-white tw-absolute tw-end-2.5 tw-bottom-2.5 tw-bg-blue-700 hover:tw-bg-blue-800 focus:tw-ring-4 focus:tw-outline-none focus:tw-ring-blue-300 tw-font-medium tw-rounded-lg tw-text-sm tw-px-4 tw-py-2 dark:tw-bg-blue-600 dark:hover:tw-bg-blue-700 dark:focus:tw-ring-blue-800"
+              className="tw-text-white tw-absolute tw-end-2.5 tw-bottom-2.5 tw-bg-blue-700 hover:tw-bg-blue-800 focus:tw-ring-4 focus:tw-outline-none focus:tw-ring-blue-300 tw-font-medium tw-rounded-lg tw-text-sm tw-px-4 tw-py-2"
             >
               Search
             </button>
