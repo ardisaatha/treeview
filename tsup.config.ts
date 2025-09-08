@@ -1,7 +1,6 @@
-// tsup.config.ts
 import { defineConfig } from "tsup";
 import postcss from "postcss";
-// import tailwindcss from "tailwindcss";
+import tailwindcss from "@tailwindcss/postcss"; // gunakan ini, bukan 'tailwindcss'
 import autoprefixer from "autoprefixer";
 import fs from "fs/promises";
 
@@ -16,16 +15,14 @@ export default defineConfig({
   target: "es2020",
   external: ["react", "react-dom"],
   async onSuccess() {
-    // ambil global.css yg ada @tailwind
-    const css = await fs.readFile("src/components/global.css", "utf-8");
+    const css = await fs.readFile("src/styles/index.css", "utf-8");
 
-    // proses dengan tailwind + autoprefixer
-    const result = await postcss([autoprefixer]).process(css, {
-      from: "src/components/global.css",
+    const result = await postcss([tailwindcss, autoprefixer]).process(css, {
+      from: "src/styles/index.css",
       to: "dist/index.css",
     });
 
-    // hasil akhir CSS (sudah jadi CSS biasa)
     await fs.writeFile("dist/index.css", result.css);
+    console.log("✅ Tailwind CSS bundled to dist/index.css");
   },
 });
