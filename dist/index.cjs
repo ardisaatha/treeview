@@ -428,22 +428,23 @@ var Mgr = ({
   const tabs = [
     {
       label: "Payor and Corporate",
-      content: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { children: "This is a second tab with some information." })
+      content: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { children: "This is a second tab with payor and customer information." })
     },
     {
       label: "List Coverage",
-      content: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { children: "This is a second tab with some information." })
+      content: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { children: "This is a second tab with list coverage information." })
     },
     {
       label: "List Status Master",
-      content: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { children: "This is a second tab with some information." })
+      content: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { children: "This is a second tab with list status member information." })
     },
     {
       label: "Condition",
-      content: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { children: "This is a second tab with some information." })
+      content: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { children: "This is a second tab with condition information." })
     }
   ];
   return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "flex gap-4 w-full", children: [
+    "asu",
     /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
       import_framer_motion2.motion.div,
       {

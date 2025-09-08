@@ -41,24 +41,25 @@ const Mgr = ({
   const tabs = [
     {
       label: "Payor and Corporate",
-      content: <p>This is a second tab with some information.</p>,
+      content: <p>This is a second tab with payor and customer information.</p>,
     },
     {
       label: "List Coverage",
-      content: <p>This is a second tab with some information.</p>,
+      content: <p>This is a second tab with list coverage information.</p>,
     },
     {
       label: "List Status Master",
-      content: <p>This is a second tab with some information.</p>,
+      content: <p>This is a second tab with list status member information.</p>,
     },
     {
       label: "Condition",
-      content: <p>This is a second tab with some information.</p>,
+      content: <p>This is a second tab with condition information.</p>,
     },
   ];
 
   return (
     <div className="flex gap-4 w-full">
+        asu
       {/* Left Card */}
       <motion.div
         initial={{ width: "100%" }}
