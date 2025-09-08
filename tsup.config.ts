@@ -1,7 +1,8 @@
 import { defineConfig } from "tsup";
 import postcss from "postcss";
-import tailwindcss from "@tailwindcss/postcss"; // gunakan ini, bukan 'tailwindcss'
+import tailwindcss from "@tailwindcss/postcss";
 import autoprefixer from "autoprefixer";
+import postcssPrefixSelector from "postcss-prefix-selector";
 import fs from "fs/promises";
 
 export default defineConfig({
@@ -17,7 +18,14 @@ export default defineConfig({
   async onSuccess() {
     const css = await fs.readFile("src/styles/index.css", "utf-8");
 
-    const result = await postcss([tailwindcss, autoprefixer]).process(css, {
+    const result = await postcss([
+      tailwindcss,
+      autoprefixer,
+      postcssPrefixSelector({
+        prefix: "tw-",
+        exclude: ["html", "body"], // Exclude html and body tags if needed
+      }),
+    ]).process(css, {
       from: "src/styles/index.css",
       to: "dist/index.css",
     });
