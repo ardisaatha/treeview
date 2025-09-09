@@ -111,11 +111,7 @@ const Tabs = ({ tabs, defaultKey, queryKey, sticky, className }: TabProps) => {
             >
               <motion.button
                 onClick={() => handleSelect(item.label)}
-                className={`tw-inline-block tw-pb-2.5 tw-px-0 tw-pt-0 tw-border-b-2 tw-bg-transparent tw-rounded-t-lg focus:tw-outline-none ${
-                  tabKey === item.label
-                    ? "tw-border-solid tw-text-[#cc141d]"
-                    : "tw-border-transparent tw-text-gray-500"
-                }`}
+                className={`tw-inline-block tw-pb-2.5 tw-px-0 tw-pt-0 tw-bg-transparent tw-rounded-t-lg focus:tw-outline-none`}
                 type="button"
                 role="tab"
                 aria-selected={tabKey === item.label}

@@ -277,12 +277,6 @@
 .tw-border-b {
     border-bottom-width: 1px
 }
-.tw-border-b-2 {
-    border-bottom-width: 2px
-}
-.tw-border-solid {
-    border-style: solid
-}
 .tw-border-gray-200 {
     --tw-border-opacity: 1;
     border-color: rgb(229 231 235 / var(--tw-border-opacity, 1))
@@ -290,9 +284,6 @@
 .tw-border-gray-300 {
     --tw-border-opacity: 1;
     border-color: rgb(209 213 219 / var(--tw-border-opacity, 1))
-}
-.tw-border-transparent {
-    border-color: transparent
 }
 .tw-bg-\[\#cc141d\] {
     --tw-bg-opacity: 1;
@@ -410,10 +401,6 @@
 }
 .tw-uppercase {
     text-transform: uppercase
-}
-.tw-text-\[\#cc141d\] {
-    --tw-text-opacity: 1;
-    color: rgb(204 20 29 / var(--tw-text-opacity, 1))
 }
 .tw-text-gray-500 {
     --tw-text-opacity: 1;
