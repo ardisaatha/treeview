@@ -99,6 +99,7 @@ const Tabs = ({ tabs, defaultKey, queryKey, sticky, className }: TabProps) => {
         } ${className ?? ""}`}
       >
         <ul
+        style={{borderBottom: "1px solid #e5e7eb"}}
           className="tw-flex tw-list-none tw-p-0 tw-border-b tw-border-gray-200 tw-flex-wrap tw--mb-px tw-text-xs tw-font-normal tw-text-center"
           role="tablist"
         >
@@ -110,9 +111,9 @@ const Tabs = ({ tabs, defaultKey, queryKey, sticky, className }: TabProps) => {
             >
               <motion.button
                 onClick={() => handleSelect(item.label)}
-                className={`tw-inline-block tw-pb-2.5 tw-border-b-2 tw-bg-none tw-rounded-t-lg focus:tw-outline-none ${
+                className={`tw-inline-block tw-pb-2.5 tw-px-0 tw-pt-0 tw-border-b-2 tw-bg-transparent tw-rounded-t-lg focus:tw-outline-none ${
                   tabKey === item.label
-                    ? "tw-border-transparent tw-text-[#cc141d]"
+                    ? "tw-border-solid tw-text-[#cc141d]"
                     : "tw-border-transparent tw-text-gray-500"
                 }`}
                 type="button"

@@ -44,7 +44,7 @@ const Feature = ({
       content: <p>This is a second tab with report agr.</p>,
     },
   ];
-  return <Tabs tabs={menu} queryKey="page" defaultKey="Home" sticky />;
+  return <Tabs tabs={menu} queryKey="page" defaultKey="Home" />;
 };
 
 export default Feature;
