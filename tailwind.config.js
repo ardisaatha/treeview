@@ -5,7 +5,7 @@ module.exports = {
   theme: {
     extend: {},
   },
-  important: true,
+  // important: true,
   corePlugins: {
     preflight: false, // ⛔ jangan reset global style
   },

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Tabs from "../components/tab";
-import TreeView from "../components/treeview";
-import { TreeContentLayoutProps, TreeNode } from "../components/types";
+import Tabs from "../../components/tab";
+import TreeView from "../../components/treeview";
+import { TreeContentLayoutProps, TreeNode } from "../../components/types";
+import PayorSection from "./PayorSection";
 
 const Mgr = ({
   fetchLeftData,
@@ -41,7 +42,7 @@ const Mgr = ({
   const tabs = [
     {
       label: "Payor and Corporate",
-      content: <p>This is a second tab with payor and customer information.</p>,
+      content: <PayorSection />,
     },
     {
       label: "List Coverage",
@@ -102,7 +103,6 @@ const Mgr = ({
               className="tw-block tw-w-full tw-p-4 tw-ps-10 tw-text-sm tw-text-gray-900 tw-border tw-border-gray-300 tw-rounded-lg tw-bg-gray-50 focus:tw-ring-blue-500 focus:tw-border-blue-500"
               placeholder="Search"
               required
-
             />
             <button
               type="button"
@@ -135,8 +135,6 @@ const Mgr = ({
             <div className="tw-mb-2 tw-flex tw-items-center tw-gap-1">
               <div className="tw-w-1 tw-h-4 tw-rounded-full tw-bg-indigo-500"></div>
               <div className="tw-font-semibold tw-text-lg">
-
-
                 Right Tree: {selectedNode.name}
               </div>
             </div>
@@ -154,4 +152,3 @@ const Mgr = ({
 };
 
 export default Mgr;
-
