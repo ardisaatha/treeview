@@ -1,6 +1,8 @@
 import Tabs from "../components/tab";
 import { TreeContentLayoutProps } from "../components/types";
+import Home from "../section/home";
 import Mgr from "./Mgr";
+import Tmp from "./Mgr/tmp";
 
 const Feature = ({
   fetchLeftData,
@@ -19,17 +21,11 @@ const Feature = ({
   const menu = [
     {
       label: "Home",
-      content: (
-        <Mgr
-          fetchLeftData={fetchLeftData}
-          fetchRightData={fetchRightData}
-          onRightLeafClick={onRightLeafClick}
-        />
-      ),
+      content: <Home />,
     },
     {
       label: "Report Control",
-      content: <p>This is a second tab with list Report Control.</p>,
+      content: <Tmp />,
     },
     {
       label: "Add & Config User",

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { TreeNode } from "../types";
-import { DocumentIcon, FolderIcon, FolderOpenIcon } from "../icon";
+import { DocumentIcon, FolderIcon, FolderOpenIcon } from "../../assets/icon";
 
 type TreeViewProps = {
-  data: TreeNode[];
+  data: any;
   onLeafClick: (node: TreeNode) => void;
   iconClose?: React.ReactNode;
   iconOpen?: React.ReactNode;
@@ -26,7 +26,7 @@ export default function TreeView({
   };
   return (
     <ul className="tw-list-none tw-pl-0 tw-m-0">
-      {data.map((node, i) => (
+      {data?.map((node: any, i: any) => (
         <li key={node.id} className={i > 0 ? "tw-mt-1" : ""}>
           <div
             className={`tw-flex tw-items-center tw-gap-2 tw-cursor-pointer tw-rounded tw-p-1 hover:tw-bg-gray-100 tw-transition-colors`}

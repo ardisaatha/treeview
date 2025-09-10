@@ -94,12 +94,12 @@ const Tabs = ({ tabs, defaultKey, queryKey, sticky, className }: TabProps) => {
   return (
     <>
       <div
-        className={`tw-pt-3  ${
-          sticky ? "tw-sticky tw-top-0 " : ""
-        } ${className ?? ""}`}
+        className={`tw-pt-3  ${sticky ? "tw-sticky tw-top-0 " : ""} ${
+          className ?? ""
+        }`}
       >
         <ul
-        style={{borderBottom: "1px solid #e5e7eb"}}
+          style={{ borderBottom: "1px solid #e5e7eb" }}
           className="tw-flex tw-list-none tw-p-0 tw-border-b tw-border-gray-200 tw-flex-wrap tw--mb-px tw-text-xs tw-font-normal tw-text-center"
           role="tablist"
         >
@@ -111,7 +111,11 @@ const Tabs = ({ tabs, defaultKey, queryKey, sticky, className }: TabProps) => {
             >
               <motion.button
                 onClick={() => handleSelect(item.label)}
-                className={`tw-inline-block tw-pb-2.5 tw-px-0 tw-pt-0 tw-bg-transparent tw-rounded-t-lg focus:tw-outline-none`}
+                className={`tw-inline-block tw-pb-2.5 tw-px-0 tw-pt-0 tw-bg-transparent tw-border-none tw-rounded-t-lg focus:tw-outline-none ${
+                  tabKey === item.label
+                    ? "tw-text-[#cc141d]"
+                    : "tw-text-gray-500"
+                }`}
                 type="button"
                 role="tab"
                 aria-selected={tabKey === item.label}

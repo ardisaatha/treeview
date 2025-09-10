@@ -92,7 +92,7 @@ function DataTable<T extends { id: string | number }>({
             setSearch(e.target.value);
             setPage(1);
           }}
-          className="tw-w-full sm:tw-w-64 tw-p-2 tw-border tw-border-gray-300 tw-rounded-lg focus:tw-ring-2 focus:tw-ring-blue-500"
+          className="tw-w-full sm:tw-w-64 tw-p-2 tw-border-solid tw-border-gray-300 tw-rounded-lg focus:tw-ring-2 focus:tw-ring-blue-500"
         />
 
         {/* Rows per page */}

@@ -16,7 +16,7 @@ export default defineConfig({
   external: ["react", "react-dom"],
   async onSuccess() {
     // baca global.css
-    const css = await fs.readFile("src/styles/index.css", "utf-8");
+    const css = await fs.readFile("src/assets/styles/index.css", "utf-8");
 
     // proses dengan postcss + tailwind + autoprefixer
     const result = await postcss([tailwindcss(), autoprefixer()]).process(css, {
