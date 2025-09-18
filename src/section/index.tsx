@@ -44,6 +44,8 @@ const Section = ({
       tabs={menu}
       queryKey="page"
       defaultKey="Home"
+      betweenMenu
+      className="tw-bg-white tw-p-3 tw-shadow-sm"
       sticky
       // scrollContainerId="myScrollContainer" // 👈 opsional, kasih kalau scroll di container
     />

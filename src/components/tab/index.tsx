@@ -12,6 +12,7 @@ type TabProps = {
   queryKey: string;
   sticky?: boolean;
   className?: string;
+  betweenMenu?: boolean;
 };
 
 // Convert a string to camelCase (e.g., "Tab One" => "tabOne")
@@ -45,7 +46,14 @@ const LocalProgressBar = ({ loading }: { loading: boolean }) => {
   );
 };
 
-const Tabs = ({ tabs, defaultKey, queryKey, sticky, className }: TabProps) => {
+const Tabs = ({
+  tabs,
+  defaultKey,
+  queryKey,
+  sticky,
+  className,
+  betweenMenu = false,
+}: TabProps) => {
   const [tabKey, setTabKey] = useState(() => {
     const params = new URLSearchParams(window.location.search);
     const param = params.get(queryKey);
@@ -92,53 +100,56 @@ const Tabs = ({ tabs, defaultKey, queryKey, sticky, className }: TabProps) => {
     }
   }, [defaultKey, tabs, queryKey]);
   useEffect(() => {
-  if (typeof window === "undefined") return;
+    if (typeof window === "undefined") return;
 
-  const handleScroll = () => {
-    console.log("scrollY:", window.scrollY); // 👈 debug setiap scroll
-    setIsStuck(window.scrollY > 0);
-  };
+    const handleScroll = () => {
+      console.log("scrollY:", window.scrollY); // 👈 debug setiap scroll
+      setIsStuck(window.scrollY > 0);
+    };
 
-  window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
-  // Debug juga kapan efek pertama kali jalan
-  console.log("useEffect mount, pasang listener");
+    // Debug juga kapan efek pertama kali jalan
+    console.log("useEffect mount, pasang listener");
 
-  // Jalankan sekali untuk inisialisasi
-  handleScroll();
+    // Jalankan sekali untuk inisialisasi
+    handleScroll();
 
-  return () => {
-    console.log("useEffect cleanup, lepas listener");
-    window.removeEventListener("scroll", handleScroll);
-  };
-}, []);
+    return () => {
+      console.log("useEffect cleanup, lepas listener");
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <>
       <div
-        className={`tw-pt-3 tw-z-30 ${sticky ? "tw-sticky tw-top-0 " : ""} ${
-          className ?? ""
-        }`}
+        className={`tw-pt-3 tw-z-30 tw-rounded-xl ${
+          sticky ? "tw-sticky tw-top-0 " : ""
+        } ${className ?? ""}`}
       >
         <ul
           style={{ borderBottom: "1px solid #e5e7eb" }}
-          className="tw-flex tw-list-none tw-p-0 tw-border-b tw-border-gray-200 tw-flex-wrap tw--mb-px tw-text-xs tw-font-normal tw-text-center"
+          className={` tw-flex ${
+            betweenMenu ? "tw-justify-between gap-2" : "tw-flex-wrap"
+          } tw-list-none tw-p-0 tw-border-b tw-border-gray-200 tw--mb-px tw-text-xs tw-font-normal tw-text-center`}
           role="tablist"
         >
           {tabs.map((item) => (
             <li
               key={item.label}
-              className="tw-me-4 tw-relative"
+              className={`${
+                betweenMenu ? "tw-w-full tw-bg-slate-50 pt-2" : "tw-me-4"
+              } tw-relative tw-rounded-lg tw-cursor-pointer`}
               role="presentation"
+              onClick={() => handleSelect(item.label)}
             >
               <motion.button
-                onClick={() => handleSelect(item.label)}
                 className={`tw-inline-block tw-pb-2.5 tw-px-0 tw-pt-0 tw-bg-transparent tw-border-none tw-rounded-t-lg focus:tw-outline-none ${
                   tabKey === item.label
                     ? "tw-text-[#cc141d]"
                     : "tw-text-gray-500"
                 }`}
-                type="button"
                 role="tab"
                 aria-selected={tabKey === item.label}
                 whileHover={{ scale: 1.05 }}
