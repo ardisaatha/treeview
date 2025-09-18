@@ -1,10 +1,9 @@
 import Tabs from "../components/tab";
 import { TreeContentLayoutProps } from "../components/types";
-import Home from "../section/home";
-import Mgr from "./Mgr";
-import Tmp from "./Mgr/tmp";
+import Home from "./home";
+import ReportControl from "./report-control";
 
-const Feature = ({
+const Section = ({
   fetchLeftData,
   fetchRightData,
   onRightLeafClick,
@@ -25,7 +24,7 @@ const Feature = ({
     },
     {
       label: "Report Control",
-      content: <Tmp />,
+      content: <ReportControl />,
     },
     {
       label: "Add & Config User",
@@ -40,7 +39,15 @@ const Feature = ({
       content: <p>This is a second tab with report agr.</p>,
     },
   ];
-  return <Tabs tabs={menu} queryKey="page" defaultKey="Home" />;
+  return (
+    <Tabs
+      tabs={menu}
+      queryKey="page"
+      defaultKey="Home"
+      sticky
+      // scrollContainerId="myScrollContainer" // 👈 opsional, kasih kalau scroll di container
+    />
+  );
 };
 
-export default Feature;
+export default Section;

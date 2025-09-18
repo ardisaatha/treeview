@@ -51,6 +51,7 @@ const Tabs = ({ tabs, defaultKey, queryKey, sticky, className }: TabProps) => {
     const param = params.get(queryKey);
     return param ? getLabelFromParam(param, tabs) : defaultKey ?? tabs[0].label;
   });
+  const [isStuck, setIsStuck] = useState(false);
 
   const [loading, setLoading] = useState(false);
 
@@ -90,11 +91,32 @@ const Tabs = ({ tabs, defaultKey, queryKey, sticky, className }: TabProps) => {
       setTabKey(getLabelFromParam(param, tabs));
     }
   }, [defaultKey, tabs, queryKey]);
+  useEffect(() => {
+  if (typeof window === "undefined") return;
+
+  const handleScroll = () => {
+    console.log("scrollY:", window.scrollY); // 👈 debug setiap scroll
+    setIsStuck(window.scrollY > 0);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
+  // Debug juga kapan efek pertama kali jalan
+  console.log("useEffect mount, pasang listener");
+
+  // Jalankan sekali untuk inisialisasi
+  handleScroll();
+
+  return () => {
+    console.log("useEffect cleanup, lepas listener");
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, []);
 
   return (
     <>
       <div
-        className={`tw-pt-3  ${sticky ? "tw-sticky tw-top-0 " : ""} ${
+        className={`tw-pt-3 tw-z-30 ${sticky ? "tw-sticky tw-top-0 " : ""} ${
           className ?? ""
         }`}
       >

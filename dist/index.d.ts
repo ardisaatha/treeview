@@ -11,11 +11,11 @@ type TreeContentLayoutProps = {
     onRightLeafClick: (node: TreeNode) => void;
 };
 
-declare const Feature: ({ fetchLeftData, fetchRightData, onRightLeafClick, iconLeftClose, iconLeftOpen, iconRightClose, iconRightOpen, }: TreeContentLayoutProps & {
+declare const Section: ({ fetchLeftData, fetchRightData, onRightLeafClick, iconLeftClose, iconLeftOpen, iconRightClose, iconRightOpen, }: TreeContentLayoutProps & {
     iconLeftClose?: React.ReactNode;
     iconLeftOpen?: React.ReactNode;
     iconRightClose?: React.ReactNode;
     iconRightOpen?: React.ReactNode;
 }) => react_jsx_runtime.JSX.Element;
 
-export { Feature as Mgr, type TreeContentLayoutProps, type TreeNode, Feature as default };
+export { Section as Mgr, type TreeContentLayoutProps, type TreeNode, Section as default };

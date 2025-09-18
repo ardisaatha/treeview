@@ -25,7 +25,7 @@ export default function TreeView({
     );
   };
   return (
-    <ul className="tw-list-none tw-pl-0 tw-m-0">
+    <ul className="tw-list-none tw-pl-0 tw-m-0 tw-h-full tw-overflow-y-auto">
       {data?.map((node: any, i: any) => (
         <li key={node.id} className={i > 0 ? "tw-mt-1" : ""}>
           <div

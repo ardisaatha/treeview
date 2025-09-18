@@ -1,13 +1,13 @@
 import Tabs from "../../components/tab";
 import SectionLayout from "../../components/layout";
-import PayorSection from "../../features/Mgr/PayorSection";
+import PayorCorporateSection from "../../features/payor-corpoprate";
 
 const Home = () => {
 
   const tabs = [
     {
       label: "Payor and Corporate",
-      content: <PayorSection />,
+      content: <PayorCorporateSection />,
     },
     {
       label: "List Coverage",
@@ -30,7 +30,7 @@ const Home = () => {
           tabs={tabs}
           queryKey="tab"
           defaultKey="Payor and Corporate"
-          sticky
+          // sticky
         />
       }
     />

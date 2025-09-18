@@ -1,7 +1,8 @@
 // // import "./styles/index.css"; // hasil build CSS, bukan global.css mentah // hasil build CSS, bukan global.css mentah
 
-import Feature from "./features";
+import Section from "./section";
 
-export default Feature;
-export { Feature as Mgr };
+
+export default Section;
+export { Section as Mgr };
 export * from "./components/types";
