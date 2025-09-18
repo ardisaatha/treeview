@@ -29,57 +29,102 @@ export default function TreeView({
       {data?.map((node: any, i: any) => (
         <li key={node.id} className={i > 0 ? "tw-mt-1" : ""}>
           <div
-            className={`tw-flex tw-items-center tw-gap-2 tw-cursor-pointer tw-rounded tw-p-1 hover:tw-bg-gray-100 tw-transition-colors`}
-            style={{ paddingLeft: `${level * 16}px` }}
-            onClick={() =>
-              node.children && node.children.length > 0
-                ? toggleExpand(node.id)
-                : onLeafClick(node)
-            }
-          >
-            {node.children && node.children.length > 0 ? (
-              <>
-                {!iconClose && !iconOpen ? (
-                  <span>
-                    {expanded.includes(node.id) ? (
-                      <FolderOpenIcon
-                        width={24}
-                        height={24}
-                        color="rgb(59 130 246)"
-                      />
+              className={`tw-flex tw-items-center tw-gap-3 tw-p-3 tw-rounded-lg tw-cursor-pointer tw-transition-all tw-duration-200 tw-group ${
+                expanded.includes(node.id) ? "tw-bg-opacity-10" : ""
+              }`}
+              style={{
+                paddingLeft: `${level * 16}px`,
+                backgroundColor: expanded.includes(node.id) ? 'var(--color-primary-light)' : 'transparent',
+              }}
+              onMouseEnter={(e) => {
+                if (!expanded.includes(node.id)) {
+                  e.currentTarget.style.backgroundColor = 'var(--bg-hover)';
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!expanded.includes(node.id)) {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                }
+              }}
+              onClick={() =>
+                node.children && node.children.length > 0
+                  ? toggleExpand(node.id)
+                  : onLeafClick(node)
+              }
+            >
+            {/* Modern Folder Icon */}
+            <div className="tw-flex tw-items-center tw-gap-3 tw-flex-1">
+              <div className="tw-flex tw-items-center tw-justify-center tw-w-5 tw-h-5">
+                {node.children && node.children.length > 0 ? (
+                  <>
+                    {!iconClose && !iconOpen ? (
+                      <span>
+                        {expanded.includes(node.id) ? (
+                          <FolderOpenIcon 
+                            className="tw-w-5 tw-h-5" 
+                            style={{ color: 'var(--color-primary)' }}
+                          />
+                        ) : (
+                          <FolderIcon 
+                            className="tw-w-5 tw-h-5" 
+                            style={{ color: 'var(--text-secondary)' }}
+                          />
+                        )}
+                      </span>
                     ) : (
-                      <FolderIcon
-                        width={24}
-                        height={24}
-                        color="rgb(59 130 246)"
-                      />
+                      <span className="tw-ml-1">
+                        {expanded.includes(node.id) ? iconOpen : iconClose}
+                      </span>
                     )}
-                  </span>
+                  </>
                 ) : (
-                  <span className="tw-ml-1">
-                    {expanded.includes(node.id) ? iconOpen : iconClose}
-                  </span>
+                  <DocumentIcon 
+                     className="tw-w-4 tw-h-4" 
+                     style={{ color: 'var(--text-secondary)' }}
+                   />
                 )}
-              </>
-            ) : (
-              <span className="tw-inline-block tw-w-4">
-                <DocumentIcon />
+              </div>
+              <span 
+                className="tw-font-medium tw-transition-colors tw-duration-200"
+                style={{ 
+                  color: expanded.includes(node.id) ? 'var(--color-primary)' : 'var(--text-primary)',
+                  fontWeight: 'var(--font-weight-medium)'
+                }}
+              >
+                {node.name}
               </span>
-            )}
-            <span>{node.name}</span>
+              {node.children && node.children.length > 0 && (
+                <span 
+                  className="tw-text-xs tw-px-2 tw-py-0.5 tw-rounded-full"
+                  style={{ 
+                    backgroundColor: 'var(--bg-accent)',
+                    color: 'var(--text-muted)'
+                  }}
+                >
+                  {node.children.length}
+                </span>
+              )}
+            </div>
           </div>
 
-          {node.children &&
-            node.children.length > 0 &&
-            expanded.includes(node.id) && (
+          {expanded.includes(node.id) && node.children && (
+            <div 
+              className="tw-transition-all tw-duration-300 tw-ease-in-out tw-overflow-hidden tw-mt-1"
+              style={{ 
+                borderLeft: `2px solid var(--border-color)`,
+                marginLeft: `${(level + 1) * 8}px`,
+                paddingLeft: '12px'
+              }}
+            >
               <TreeView
                 data={node.children}
                 onLeafClick={onLeafClick}
+                level={level + 1}
                 iconClose={iconClose}
                 iconOpen={iconOpen}
-                level={level + 1}
               />
-            )}
+            </div>
+          )}
         </li>
       ))}
     </ul>
